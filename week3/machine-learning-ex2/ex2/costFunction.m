@@ -24,8 +24,6 @@ grad = zeros(size(theta));
 % hx = g(X * theta)
 hx = sigmoid(X * theta);
 
-fprintf('hx computed using sigmoid function: %f\n', hx);
-
 % cost
 J = -1 * (1/m) * sum(y .* log(hx) + (1 - y) .* log(1 - hx));
 
