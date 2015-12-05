@@ -23,7 +23,7 @@ grad = zeros(size(theta));
 hx = sigmoid(X * theta);
 
 % origial cost function
-J = (-1 / m) * sum(y .* log(hx) + (1 - y) .* log(1 - hx)) + (lambda * 2 / m) * sum(theta(2:size(theta,1)) .^ 2); 
+J = (-1 / m) * sum(y .* log(hx) + (1 - y) .* log(1 - hx)) + (lambda / (2 * m)) * sum(theta(2:end) .^ 2); 
 
 % gradient
 grad(1) = (1 / m) * sum(hx - y);
