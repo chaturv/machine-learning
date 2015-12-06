@@ -27,9 +27,13 @@ hx = sigmoid(X * theta);
 % cost
 J = -1 * (1/m) * sum(y .* log(hx) + (1 - y) .* log(1 - hx));
 
-for i = 1:n
-    grad(i) = (1/m) * sum((hx - y) .* X(:,i));
-end
+%for i = 1:n
+%    grad(i) = (1/m) * sum((hx - y) .* X(:,i));
+%end
+
+grad = (1/m) * sum(repmat((hx - y), 1, n) .* X);
+
+grad = grad(:);
 % =============================================================
 
 end

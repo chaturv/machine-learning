@@ -35,8 +35,9 @@ J = (-1 / m) * sum(y .* log(hx) + (1 - y) .* log(1 - hx)) + (lambda / (2 * m)) *
 grad = (1/m) * (sum(repmat((hx - y), 1, n) .* X) + transpose(theta) * lambda);
 % replace 
 grad(1) = (1 / m) * sum(hx - y);
-
 grad = grad(:);
+
+
 
 % =============================================================
 
