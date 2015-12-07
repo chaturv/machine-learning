@@ -7,6 +7,7 @@ function [J, grad] = lrCostFunction(theta, X, y, lambda)
 
 % Initialize some useful values
 m = length(y); % number of training examples
+n = size(X, 2); % number of features (including the default x0 = 1)
 
 % You need to return the following variables correctly 
 J = 0;
@@ -36,14 +37,19 @@ grad = zeros(size(theta));
 %           grad = grad + YOUR_CODE_HERE (using the temp variable)
 %
 
+% hx = g(X * theta)
+hx = sigmoid(X * theta);
 
+% cost
+J = -1 * (1/m) * sum(y .* log(hx) + (1 - y) .* log(1 - hx)) + (lambda * sum(theta(2:end) .^2)) / (2 * m);
 
+% using a repeat matrix implementation
+% grad = (1/m) * sum(repmat((hx - y), 1, n) .* X);
 
-
-
-
-
-
+% create temp from theta and set temp(1) = 0 as theta0 gradient is not regularized
+temp = theta; 
+temp(1) = 0; 
+grad = (1/m) * (transpose(X) * (hx - y) + lambda * temp);
 
 % =============================================================
 
