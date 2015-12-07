@@ -77,10 +77,11 @@ for lbl=1:num_labels
 end
 
 fprintf('all_theta: \n');
-fprintf(' rows: %f \n', size(all_theta, 1));
-fprintf(' cols: %f \n', size(all_theta, 2));
-
+fprintf(' %f \n', theta);
 
 % =========================================================================
 
+
 end
+
+
