@@ -30,13 +30,12 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
-all_hx = sigmoid(X * transpose(all_theta));
-[max_val, p] = max(all_hx, [], 2);
+hx = sigmoid(X * all_theta);
 
 
-fprintf('p: \n');
-fprintf(' rows: %f \n', size(p, 1));
-fprintf(' cols: %f \n', size(p, 2));
+
+
+
 
 % =========================================================================
 
