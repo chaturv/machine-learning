@@ -67,3 +67,14 @@ pred = predictOneVsAll(all_theta, X);
 
 fprintf('\nTraining Set Accuracy: %f\n', mean(double(pred == y)) * 100);
 
+accuracy = pred == y;
+
+incorrectX = [];
+for k=1:m
+    if accuracy(k) == 0
+        incorrectX = [incorrectX; k];
+    end
+end
+
+sel = X(incorrectX(:), :);
+displayData(sel);

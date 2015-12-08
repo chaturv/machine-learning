@@ -21,15 +21,41 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 
+% Add ones to the X data matrix
+% fprintf('X: \n');
+% fprintf(' rows: %f \n', size(X, 1));
+% fprintf(' cols: %f \n', size(X, 2));
 
+X = [ones(m, 1) X];
 
+% fprintf('X: \n');
+% fprintf(' rows: %f \n', size(X, 1));
+% fprintf(' cols: %f \n', size(X, 2));
 
+A1 = transpose(X);
 
+Zeta2 = Theta1 * A1;
+A2 = sigmoid(Zeta2);
 
+% Add ones to the A2 data matrix
+A2 = [ones(1, size(A2, 2)); A2];
 
+% fprintf('A2: \n');
+% fprintf(' rows: %f \n', size(A2, 1));
+% fprintf(' cols: %f \n', size(A2, 2));
 
+Zeta3 = Theta2 * A2;
+A3 = sigmoid(Zeta3);
+
+% transpose A3 and extract max and index
+[MAX_VAL, I] = max(transpose(A3), [], 2);
+
+p = I;
+
+% fprintf('p: \n');
+% fprintf(' rows: %f \n', size(p, 1));
+% fprintf(' cols: %f \n', size(p, 2));
 
 % =========================================================================
-
 
 end

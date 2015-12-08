@@ -75,10 +75,10 @@ for lbl=1:num_labels
     
     all_theta(lbl,:) = transpose(theta);
 end
-
-fprintf('all_theta: \n');
-fprintf(' rows: %f \n', size(all_theta, 1));
-fprintf(' cols: %f \n', size(all_theta, 2));
+ 
+% fprintf('all_theta: \n');
+% fprintf(' rows: %f \n', size(all_theta, 1));
+% fprintf(' cols: %f \n', size(all_theta, 2));
 
 
 % =========================================================================

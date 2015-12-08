@@ -31,12 +31,12 @@ X = [ones(m, 1) X];
 %       
 
 all_hx = sigmoid(X * transpose(all_theta));
-[max_val, p] = max(all_hx, [], 2);
+[MAX_VAL, p] = max(all_hx, [], 2);
 
 
-fprintf('p: \n');
-fprintf(' rows: %f \n', size(p, 1));
-fprintf(' cols: %f \n', size(p, 2));
+% fprintf('p: \n');
+% fprintf(' rows: %f \n', size(p, 1));
+% fprintf(' cols: %f \n', size(p, 2));
 
 % =========================================================================
 
