@@ -1,0 +1,21 @@
+clear;
+data = csvread('./yahoo_data/GE_20150101-20160528.csv', 1, 5);
+
+prc = sort(data(:,2));
+vol = sort(data(:,1));
+
+mu_prc = mean(prc);
+sigma_prc = std(prc);
+
+pd_prc = makedist('Normal', mu_prc, sigma_prc);
+pdf_prc = pdf(pd_prc, prc);
+
+plot(prc, pdf_prc);
+
+mu_vol = mean(vol);
+sigma_vol = std(vol);
+
+pd_vol = makedist('Normal', mu_vol, sigma_vol);
+pdf_vol = pdf(pd_vol, vol);
+
+plot(prc, pdf_prc);
