@@ -1,22 +1,24 @@
 # Make a prediction
-def predict(node, row):
-    if row[node['index']] < node['value']:
-        if isinstance(node['left'], dict):
-            return predict(node['left'], row)
+def predict(tree, row):
+    if row[tree['index']] < tree['value']:
+        if isinstance(tree['left'], dict):
+            return predict(tree['left'], row)
         else:
-            return node['left']
+            return tree['left']
     else:
-        if isinstance(node['right'], dict):
-            return predict(node['right'], row)
+        if isinstance(tree['right'], dict):
+            return predict(tree['right'], row)
         else:
-            return node['right']
+            return tree['right']
 
 
 # Build a decision tree
 def build_tree(train, max_depth, min_size):
-    root = get_split(train)
-    split(root, max_depth, min_size, 1)
-    return root
+    tree = get_split(train)
+    split(tree, max_depth, min_size, 1)
+
+    print 'Tree : {tree}'.format(tree=tree)
+    return tree
 
 
 # Create child splits for a node or make terminal
